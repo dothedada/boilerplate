@@ -1,16 +1,17 @@
 /* FUENTES */
-/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@800&family=Rock+3D&display=swap'); */
+/* Cambiar por fuentes del proyecto */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@800&family=Rock+3D&display=swap');
 :root {
-    --text: hsl(60, 9%, 15%);
-    --background: hsl(53, 40%, 96%);
-    --primary: hsl(358, 78%, 37%);
-    --secondary: hsl(60, 87%, 51%);
-    --accent: hsl(43, 100%, 50%);
+	--text: hsl(60, 9%, 15%); /* Cambiar este valor segun proyecto */
+    --background: hsl(53, 40%, 96%); /* Cambiar este valor segun proyecto */
+    --primary: hsl(358, 78%, 37%); /* Cambiar este valor segun proyecto */
+    --secondary: hsl(60, 87%, 51%); /* Cambiar este valor segun proyecto */
+    --accent: hsl(43, 100%, 50%); /* Cambiar este valor segun proyecto */
 
-    --font-parragraph: 'Fira Code', monospace;
-    --font-headings: 'Poppins', sans-serif;
-    --font-display: 'Rock 3D', serif;
-    --line-height: calc(1ex / 0.32);
+    --font-parragraph: 'Fira Code', monospace; /* Cambiar este valor segun proyecto */
+    --font-headings: 'Poppins', sans-serif; /* Cambiar este valor segun proyecto */
+    --font-display: 'Rock 3D', serif; /* Cambiar este valor segun proyecto */
+    --line-height: calc(1ex / 0.32); /* Cambiar este valor segun proyecto */
 }
 html {
     font-size: 100%;
@@ -34,7 +35,7 @@ html {
     margin: 0; 
     padding: 0;
 }
-
+/* Tipografía */
 h1, h2, h3, h4 {
     font-family: var(--font-headings);
     text-wrap: balance;
@@ -50,16 +51,16 @@ b, strong {
     /* Normaliza el peso de la fuente */
     font-weight: 700;
 }
-
+/* Interacción */
 a, button { 
     /* Corrige el problema de consistencia del cursor */
     cursor: pointer;
 }
-
-ul {
-    list-style: none;
-    padding: 0;
+input, textarea, button, select {
+    /* Corrige la asignación de fuente a los elementos de formulario */
+    font: inherit;
 }
+/* Multimedia */
 img, picture, svg, video {
     /* reseteo del comportamiento de imagenes y videos */
     display: block;
@@ -76,17 +77,16 @@ img {
     background-size: cover;
     shape-margin: 1rem;
 }
-input, textarea, button, select {
-    /* Corrige la asignación de fuente a los elementos de formulario */
-    font: inherit;
-}
-
+/* Secciones */
 body {
     font-family: var(--font-parragraph);
     background-color: var(--background);
     color: var(--text);
 }
-
+ul {
+    list-style: none;
+    padding: 0;
+}
 /* Accesibilidad del contenido*/
 .hidden, [hidden] {
     display: none !important;
