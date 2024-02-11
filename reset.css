@@ -1,6 +1,14 @@
 /* FUENTES */
 /* Cambiar por fuentes del proyecto */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Poppins:wght@800&family=Rock+3D&display=swap');
+@font-face {
+    font-family: 'Nombre Que se le Dará a la fuente';
+    font-weight: 400;
+    font-style: italic;
+    src: local(''),
+        url('') format('woff2'),
+        url('') format('woff'),
+        url('') format('ttf');
+}
 :root {
 	--text: hsl(60, 9%, 15%); /* Cambiar este valor segun proyecto */
     --background: hsl(53, 40%, 96%); /* Cambiar este valor segun proyecto */
@@ -8,10 +16,8 @@
     --secondary: hsl(60, 87%, 51%); /* Cambiar este valor segun proyecto */
     --accent: hsl(43, 100%, 50%); /* Cambiar este valor segun proyecto */
 
-    --font-parragraph: 'Fira Code', monospace; /* Cambiar este valor segun proyecto */
-    --font-headings: 'Poppins', sans-serif; /* Cambiar este valor segun proyecto */
-    --font-display: 'Rock 3D', serif; /* Cambiar este valor segun proyecto */
-    --line-height: calc(1ex / 0.32); /* Cambiar este valor segun proyecto */
+    --font-parragraph: 'fuente textos', monospace; /* Cambiar este valor segun proyecto */
+    --font-headings: 'fuente párrafo', sans-serif; /* Cambiar este valor segun proyecto */
 }
 html {
     font-size: 100%;
@@ -38,14 +44,15 @@ html {
 /* Tipografía */
 h1, h2, h3, h4 {
     font-family: var(--font-headings);
-    text-wrap: balance;
     line-height: var(--line-height);
+    text-wrap: balance;
+    
 }
 p {
-    line-height: var(--line-height);
-    margin: 0 0 var(--line-height);
-    text-wrap: pretty;
     max-width: 65ch;
+    line-height: calc(1ex / 0.32);
+    margin: 0 0 calc(1ex / 0.32);
+    text-wrap: pretty;
 }
 b, strong {
     /* Normaliza el peso de la fuente */
