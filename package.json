@@ -1,0 +1,14 @@
+{
+    "name": "",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "serve": "browser-sync start --server --files *.html *.css *.js --browser 'firefox'",
+        "publish": "git subtree push --prefix public origin gh-pages" 
+    },
+    "dependencies": {},
+    "keywords": [],
+    "author": "Miguel Mejía <info@mmejia.com>",
+    "license": "MIT"
+}
+
