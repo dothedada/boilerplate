@@ -18,7 +18,7 @@ module.exports = {
             inject: 'body',
         }),
         new MiniCssExtractPlugin({
-            // filename: '[name].css',
+            filename: '[name].css',
         }),
     ],
 
@@ -37,7 +37,6 @@ module.exports = {
                     // MiniCssExtractPlugin.loader,
                     {
                         loader: 'style-loader',
-                        options: { injectType: 'singletonStyleTag'},
                     },
                     'css-loader',
                 ],
