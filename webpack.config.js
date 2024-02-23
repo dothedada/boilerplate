@@ -3,55 +3,59 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-module.exports = {
-    mode: 'development',
-    entry: './src/lib/index.js',
+module.exports = (env) => {
+    const [mode, modeConf] =
+        env.mode === 'development'
+            ? ['development', true]
+            : ['production', false];
 
-    // devtool: 'inline-source-map',
-    devServer: {
-        static: './public',
-    },
+    return {
+        mode,
+        entry: './src/lib/index.js',
 
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.html',
-            inject: 'body',
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
-    ],
+        devtool: modeConf ? 'inline-source-map' : false,
+        devServer: {
+            static: './public',
+        },
 
-    output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'public'),
-        clean: true,
-        assetModuleFilename: 'assets/[name][ext]',
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: [
-                    // MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'style-loader',
-                    },
-                    'css-loader',
-                ],
-            },
-            {
-                test: /\.(jpg|jpeg|gif|png)$/i,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.(woff2|woff|ttf)$/i,
-                type: 'asset/resource',
-            },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: 'src/index.html',
+                inject: 'body',
+            }),
+            new MiniCssExtractPlugin({
+                filename: '[name].css',
+            }),
         ],
-    },
-    optimization: {
-        minimizer: [new CssMinimizerPlugin(), '...'],
-    },
+
+        output: {
+            filename: 'main.js',
+            path: path.resolve(__dirname, 'public'),
+            clean: !modeConf,
+            assetModuleFilename: 'assets/[name][ext]',
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.css$/i,
+                    use: [
+                        modeConf ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        'css-loader',
+                    ],
+                },
+                {
+                    test: /\.(jpg|jpeg|gif|png)$/i,
+                    type: 'asset/resource',
+                },
+                {
+                    test: /\.(woff2|woff|ttf)$/i,
+                    type: 'asset/resource',
+                },
+            ],
+        },
+        optimization: {
+            minimizer: [new CssMinimizerPlugin(), '...'],
+        },
+    };
 };
