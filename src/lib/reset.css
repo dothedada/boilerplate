@@ -1,14 +1,14 @@
 /* FUENTES */
 /* Cambiar por fuentes del proyecto */
-@font-face {
-    font-family: 'Nombre Que se le Dará a la fuente';
-    font-weight: 400;
-    font-style: italic;
-    src: local(''),
-        url('') format('woff2'),
-        url('') format('woff'),
-        url('') format('ttf');
-}
+/* @font-face { */
+/*     font-family: 'Nombre Que se le Dará a la fuente'; */
+/*     font-weight: 400; */
+/*     font-style: italic; */
+/*     src: local(''), */
+/*         url('') format('woff2'), */
+/*         url('') format('woff'), */
+/*         url('') format('ttf'); */
+/* } */
 :root {
 	--text: hsl(60, 9%, 15%); /* Cambiar este valor segun proyecto */
     --background: hsl(53, 40%, 96%); /* Cambiar este valor segun proyecto */
